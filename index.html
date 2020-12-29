@@ -1,19 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
+const code = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65]
 
-    <title>Konami Code Lab</title>
-    <meta name="description" content="Introduction to JavaScript numbers and arithmetic in the Learn.co curriculum">
-    <meta name="author" content="Flatiron School">
 
-    <!-- Include Mocha's stylesheet to style test results -->
-    <link rel="stylesheet" href="node_modules/mocha/mocha.css">
-  </head>
 
-  <body>
+function init() {	function init() {
+  // your code here	  //
+  var index = 0
+  document.body.addEventListener('keydown', onKeyDownHandler);
 
-    <!-- Include the student's JavaScript file. -->
-    <script src="konami_code.js"></script>
-  </body>
-</html>
+  function onKeyDownHandler(e) {
+    const key = parseInt(e.detail || e.which)
+    console.log('key', key)
+    if (key === code[index]) {
+      index++
+
+      if (index === code.length) {
+        alert("YOU DID IT!")
+        index = 0
+      }
+    } else {
+      index = 0
+    }
+  }
+}	}
+
+
+
+init();
